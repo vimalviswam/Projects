@@ -1,0 +1,6 @@
+C:\Users\vimal\source\repos\OhmValueCalculator\Calculator\bin\Debug\Calculator.dll
+C:\Users\vimal\source\repos\OhmValueCalculator\Calculator\bin\Debug\Calculator.pdb
+C:\Users\vimal\source\repos\OhmValueCalculator\Calculator\obj\Debug\Calculator.csprojResolveAssemblyReference.cache
+C:\Users\vimal\source\repos\OhmValueCalculator\Calculator\obj\Debug\Calculator.csproj.CoreCompileInputs.cache
+C:\Users\vimal\source\repos\OhmValueCalculator\Calculator\obj\Debug\Calculator.dll
+C:\Users\vimal\source\repos\OhmValueCalculator\Calculator\obj\Debug\Calculator.pdb

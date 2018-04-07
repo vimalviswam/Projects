@@ -1,0 +1,79 @@
+﻿@model OhmValueCalculator.Models.ResistorValueModel
+
+@{
+    ViewBag.Title = "Home Page";
+}
+<script type="text/javascript">
+
+    function Calculate() {
+        $("#result").html("");
+
+        var calcObj = {
+            bandAColor: $('#bandAColor').val(),
+            bandBColor: $('#bandBColor').val(),
+            bandCColor: $('#bandCColor').val(),
+            bandDColor: $('#bandDColor').val(),
+            resistorValue: 0,
+            tolerance: ''
+        };
+
+        $.ajax({
+            url: "/ResistorValue/CalculateResistorValue",
+            data: JSON.stringify(calcObj),
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (output) {
+                $("#result").html(output.Result);
+            },
+            error: function (errormessage) {
+                $("#result").html("An error occured while processing the request!");
+            }
+        });
+
+        return false;
+    }
+
+
+</script>
+
+<div class="panel">
+    <div class="panel-heading">
+        <h2 class="headline-border">Resistor Color Code Calculator</h2>
+    </div>
+    <div class="panel-body" >
+        <form >
+            <div class="form-group row">
+                <label for="dropDownBandAColor" class="col-sm-2 col-form-label">Band A Color:</label>
+                <div class="col-sm-10">
+                    @Html.EnumDropDownListFor(model => model.bandAColor, new { style = "width:130px;" })
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="dropDownBandBColor" class="col-sm-2 col-form-label">Band A Color:</label>
+                <div class="col-sm-10">
+                    @Html.EnumDropDownListFor(model => model.bandBColor, new { style = "width:130px;" })
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="dropDownBandCColor" class="col-sm-2 col-form-label">Band A Color:</label>
+                <div class="col-sm-10">
+                    @Html.EnumDropDownListFor(model => model.bandCColor, new { style = "width:130px;" })
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="dropDownBandDColor" class="col-sm-2 col-form-label">Band A Color:</label>
+                <div class="col-sm-10">
+                    @Html.EnumDropDownListFor(model => model.bandDColor, new { style = "width:130px;" })
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" id="btnCalculate" onclick="return Calculate();">Calculate Resistor Value</button>
+            </div>
+            <div id="result" class="lead"></div>            
+        </form>
+    </div>
+</div>
+
+
+
